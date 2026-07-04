@@ -11,11 +11,12 @@ public class Main {
         boolean running = true;
 
         while (running) {
-            System.out.println("1. Add Student\n" +
-                    "2. Show Student\n" +
-                    "3. Search Student\n" +
-                    "4. Delect Student\n" +
-                    "5. Exit");
+            System.out.println("""
+                    1. Add Student
+                    2. Show Student
+                    3. Search Student
+                    4. Delect Student
+                    5. Exit""");
             int number = input.nextInt();
             switch (number) {
                 case 1: //Add Student
