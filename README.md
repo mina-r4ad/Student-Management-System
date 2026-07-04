@@ -4,12 +4,15 @@ A simple console-based application built with Java to manage student records whi
 
 ---
 
-## Overview
+### Overview
 
-This project is part of my Java learning journey.
+Student Management System is a long-term Java learning project.
 
-The first version focuses on building the core CRUD operations using Java fundamentals without external libraries or databases. My goal is to improve this project step by step as I learn more about backend development.
+Instead of creating many small practice projects, I decided to build one project and improve it gradually as I learn new concepts.
 
+Each version of this repository represents a step in my journey toward becoming a backend software engineer.
+
+The first release focuses on Java fundamentals, Object-Oriented Programming (OOP), Java Collections Framework, and implementing basic CRUD operations without external libraries or databases.
 ---
 
 ## Features

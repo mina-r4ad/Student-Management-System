@@ -1,6 +1,6 @@
 # Changelog
 
-This file keeps track of the project's progress and changes over time.
+This file records the changes made in each project version.
 
 ---
 
@@ -8,28 +8,19 @@ This file keeps track of the project's progress and changes over time.
 
 **Release Date:** July 2026
 
-### Features
+### Added
 
-- Created the `Student` class.
-- Added the ability to add multiple students.
-- Display all stored students.
-- Search students by ID.
-- Search students by name.
-- Delete students by ID.
-- Delete students by name.
-- Built a simple console menu to navigate between features.
-
-### Technical Details
-
-- Language: Java 21
-- Storage: `ArrayList<Student>`
-- Interface: Console
-- Version Control: Git
+- Student model
+- Console menu
+- Add students
+- Display students
+- Search by ID
+- Search by name
+- Delete by ID
+- Delete by name
 
 ### Notes
 
-This is the first version of the project.
+This is the first public version of the project.
 
-The goal of this release was to build a solid foundation using Java fundamentals, Object-Oriented Programming, and the Java Collections Framework before adding more advanced features in future versions.
-
-Currently, student data is stored only in memory, so all records are lost when the application is closed.
+It focuses on applying Java fundamentals, Object-Oriented Programming, and Java Collections while documenting my learning journey through real project versions.
