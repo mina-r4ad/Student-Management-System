@@ -1,131 +1,226 @@
-import java.util.ArrayList;
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        // Read user input
         Scanner input = new Scanner(System.in);
 
-        ArrayList<Student> students = new ArrayList<>();
+        // Create Student Manager object
+        StudentManager manager = new StudentManager();
 
+        // Control application loop
         boolean running = true;
 
         while (running) {
+
+            // Display main menu
             System.out.println("""
                     1. Add Student
                     2. Show Student
                     3. Search Student
-                    4. Delect Student
-                    5. Exit""");
-            int number = input.nextInt();
-            switch (number) {
-                case 1: //Add Student
-                    System.out.print("How Many Students you Need:");
-                    int stu = input.nextInt();
-                    for (int i = 0; i < stu; i++) {
-                        Student student = new Student();
+                    4. Delete Student
+                    5. Update Student
+                    6. Exit
+                    ###################""");
 
-                        System.out.println("Enter Name Of Student #" + (i + 1));
-                        student.setName(input.next());
+            int choice = input.nextInt();
 
-                        System.out.println("Enter GPA Of Student #" + (i + 1));
-                        student.setGpa(input.nextFloat());
+            switch (choice) {
 
-                        student.setId(i + 1);
+                case 1: // Add Student
 
-                        students.add(student);
-                        System.out.println("Student #" + (i + 1) + " added successfully");
+                    System.out.print("How Many Students You Need: ");
+                    int numberOfStudents = input.nextInt();
 
+                    for (int i = 0; i < numberOfStudents; i++) {
+                        boolean done;
+                        do {
+                            System.out.println("Enter Name Of Student #" + (i + 1));
+                            input.nextLine();
+                            String name = input.nextLine();
+
+                            System.out.println("Enter GPA Of Student #" + (i + 1));
+                            float gpa = input.nextFloat();
+                            done = manager.addStudent(name, gpa);
+
+                            if (done) {
+                                System.out.println("===== Done =====");
+                            } else System.out.println("*****Enter a correct value*****");
+                        } while (!done);
 
                     }
-                    break;
 
-                case 2: //Show Student
-                    System.out.println("We Have #" + students.size() + " Of Students.");
-                    int i = 0;
-                    for (Student student : students) {
-
-                        System.out.println("Student #" + (++i));
-                        System.out.println("ID: " + student.getId());
-                        System.out.println("Name: " + student.getName());
-                        System.out.println("GPA: " + student.getGpa());
-                    }
                     System.out.println("====================");
                     break;
 
-                case 3: //Search Student
-                    System.out.println("You Need searching By: \n 1. ID \n 2. Name");
-                    int search = input.nextInt();
-                    if (search == 1) {
-                        System.out.print("Enter ID : ");
-                        int IdSearch = input.nextInt();
-                        for (Student student : students) {
-                            if (IdSearch == student.getId()) {
-                                System.out.println("==========");
-                                System.out.println("ID: " + student.getId());
-                                System.out.println("Name: " + student.getName());
-                                System.out.println("GPA: " + student.getGpa());
-                            }
-                        }
-                    } else if (search == 2) {
-                        System.out.print("Enter Name : ");
-                        String NameSearch = input.next();
-                        for (Student student : students) {
-                            if (NameSearch.equals(student.getName())) {
-                                System.out.println("==========");
-                                System.out.println("ID: " + student.getId());
-                                System.out.println("Name: " + student.getName());
-                                System.out.println("GPA: " + student.getGpa());
-                            }
-                        }
-                    } else
-                        System.out.println("Not Found.");
+                case 2: // Show Students
 
+                    manager.showStudents();
 
+                    System.out.println("====================");
                     break;
-                case 4: //Delect Student
-                    System.out.println("Choose how you are need delect Student 1. ID OR 2. Name : ");
-                    int delectBy = input.nextInt();
-                    if (delectBy == 1) {
-                        System.out.println("Enter ID: ");
+
+                case 3: // Search Student
+
+                    System.out.println("""
+                            Search Student By:
+                            1. ID
+                            2. Name
+                            """);
+
+                    int searchOption = input.nextInt();
+
+                    if (searchOption == 1) {
+
+                        System.out.print("Enter Student ID: ");
+
                         int id = input.nextInt();
-                        for ( i = 0; i < students.size(); i++) {
-                            Student student = students.get(i);
-                            if (student.getId() == id) {
-                                students.remove(i);
-                                System.out.println("========== Done ==========");
 
-                            }
-                        }
+                        manager.searchStudentById(id);
 
-                    } else if (delectBy == 2) {
-                        System.out.println("Enter Name: ");
-                        String Name = input.next();
-                        for (i = 0; i < students.size(); i++) {
-                            Student student = students.get(i);
-                            if (student.getName().equals(Name) ) {
-                                students.remove(i);
-                                System.out.println("========== Done ==========");
-                            }
-                        }
+                    } else if (searchOption == 2) {
 
-                    }else {
-                        System.out.println("========== Try Again ==========");
+                        System.out.print("Enter Student Name: ");
+                        input.nextLine();
+
+                        String name = input.nextLine();
+
+                        manager.searchStudentByName(name);
+
+                    } else {
+
+                        System.out.println("Not Found.");
                     }
+
                     break;
 
-                case 5://Exit
+                case 4: // Delete Student
+
+                    System.out.println("""
+                            Delete Student By:
+                            1. ID
+                            2. Name
+                            """);
+
+                    int deleteOption = input.nextInt();
+
+                    if (deleteOption == 1) {
+
+                        System.out.print("Enter Student ID: ");
+                        int id = input.nextInt();
+
+                        manager.deleteStudentById(id);
+
+                    } else if (deleteOption == 2) {
+
+                        System.out.print("Enter Student Name: ");
+                        String name = input.next();
+                        if (manager.searchStudentByName(name)) {
+
+                            System.out.print("Enter Student ID to delete: ");
+                            int id = input.nextInt();
+
+                            manager.deleteStudentById(id);
+
+                        }
+                    }
+
+                    break;
+                case 5: // Update Student
+
+                    System.out.println("""
+            What do you want to update?
+            1. Name
+            2. GPA
+            """);
+
+                    int updateOption = input.nextInt();
+
+                    switch (updateOption) {
+
+                        case 1: // Update Name
+
+                            System.out.print("Enter Student Name: ");
+                            input.nextLine();
+                            String name = input.nextLine();
+
+                            if (manager.searchStudentByName(name)) {
+
+                                System.out.print("Enter Student ID to update: ");
+                                int id = input.nextInt();
+
+                                input.nextLine();
+
+                                System.out.print("Enter New Name: ");
+                                String newName = input.nextLine();
+
+                                boolean updated = manager.updateStudentNameById(id, newName);
+
+                                if (updated) {
+                                    System.out.println("===== Student Updated Successfully =====");
+                                    manager.searchStudentById(id);
+                                } else {
+                                    System.out.println("===== Update Failed =====");
+                                }
+
+                            } else {
+
+                                System.out.println("===== Student Not Found =====");
+
+                            }
+
+                            break;
+
+                        case 2: // Update GPA
+
+                            System.out.print("Enter Student Name: ");
+                            input.nextLine();
+                            String studentName = input.nextLine();
+
+                            if (manager.searchStudentByName(studentName)) {
+
+                                System.out.print("Enter Student ID to update: ");
+                                int id = input.nextInt();
+
+                                System.out.print("Enter New GPA: ");
+                                float newGpa = input.nextFloat();
+
+                                boolean updated = manager.updateStudentGpaById(id, newGpa);
+
+                                if (updated) {
+                                    System.out.println("===== Student Updated Successfully =====");
+                                    manager.searchStudentById(id);
+                                } else {
+                                    System.out.println("===== Update Failed =====");
+                                }
+
+                            } else {
+
+                                System.out.println("===== Student Not Found =====");
+
+                            }
+
+                            break;
+
+                        default:
+
+                            System.out.println("Invalid Option.");
+
+                    }
+
+                    break;
+
+                case 6: // Exit Program
+
                     running = false;
-
-
-
-
                     break;
+
                 default:
-                    System.out.println("Enter a valid value");
+
+                    System.out.println("Enter a valid value.");
             }
-
-
         }
     }
 }

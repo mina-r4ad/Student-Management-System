@@ -20,11 +20,15 @@ The first release focuses on Java fundamentals, Object-Oriented Programming (OOP
 - Add students
 - Show all students
 - Search by ID
-- Search by name
+- Search by partial name
+- Update student name
+- Update student GPA
 - Delete by ID
 - Delete by name
-- Simple console menu
-
+- Automatic student ID generation
+- Input validation
+- Case-insensitive search
+- Console menu
 ---
 
 ## Technologies
@@ -44,9 +48,14 @@ The first release focuses on Java fundamentals, Object-Oriented Programming (OOP
 Through this version, I practiced:
 
 - Creating and using classes
+- Constructors
 - Encapsulation
 - Working with ArrayList
 - CRUD operations
+- Data validation
+- Code refactoring
+- Method reusability
+- Business logic separation
 - Loops and conditions
 - User input handling
 - Basic Git workflow
@@ -58,9 +67,9 @@ Through this version, I practiced:
 - Console application only
 - Data is stored in memory using `ArrayList`
 - Data is lost when the application closes
-- No update feature yet
+- No file persistence
 - No database integration
-- No input validation
+- No exception handling for invalid input
 
 ---
 
@@ -68,9 +77,11 @@ Through this version, I practiced:
 
 The next versions of this project will focus on:
 
-- Update student information
-- Better input validation
-- Improved project structure
+- Constructor improvements
+- Override `toString()`
+- Better validation rules
+- Exception handling
+- Code refactoring
 - File storage
 - MySQL integration
 - Spring Boot REST API
