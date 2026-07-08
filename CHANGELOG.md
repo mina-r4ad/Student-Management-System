@@ -10,7 +10,7 @@ This file records the changes made in each project version.
 
 ### Added
 
-- Student model
+- model.Student model
 - Console menu
 - Add students
 - Display students
@@ -33,8 +33,8 @@ It focuses on applying Java fundamentals, Object-Oriented Programming, and Java 
 
 - Update student name
 - Update student GPA
-- Student constructor
-- Student data validation
+- model.Student constructor
+- model.Student data validation
 - Automatic student ID generation
 - Partial name search
 - Case-insensitive search
@@ -42,7 +42,7 @@ It focuses on applying Java fundamentals, Object-Oriented Programming, and Java 
 ### Improved
 
 - Refactored duplicated printing using `printStudent()`
-- Improved StudentManager structure
+- Improved service.StudentManager structure
 - Improved menu navigation
 - Improved code readability
 - Improved method naming consistency

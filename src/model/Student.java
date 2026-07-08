@@ -1,3 +1,4 @@
+package model;
 
 public class Student {
 
@@ -10,8 +11,6 @@ public class Student {
         this.name = name;
         this.gpa = gpa;
     }
-
-
 
     public void setId(int id) {
         this.id = id;

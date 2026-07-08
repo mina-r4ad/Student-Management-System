@@ -1,4 +1,4 @@
-# Student Management System
+# model.Student Management System
 
 A simple console-based application built with Java to manage student records while practicing Object-Oriented Programming (OOP) and Java Collections.
 
@@ -6,7 +6,7 @@ A simple console-based application built with Java to manage student records whi
 
 ### Overview
 
-Student Management System is a long-term Java learning project.
+model.Student Management System is a long-term Java learning project.
 
 Instead of creating many small practice projects, I decided to build one project and improve it gradually as I learn new concepts.
 
