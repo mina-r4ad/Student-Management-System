@@ -1,34 +1,73 @@
-# model.Student Management System
+# Student Management System
 
-A simple console-based application built with Java to manage student records while practicing Object-Oriented Programming (OOP) and Java Collections.
+A console-based Java application built to practice software engineering principles, Object-Oriented Programming (OOP), and clean project architecture while implementing a complete Student Management System.
 
 ---
 
-### Overview
+## Overview
 
-model.Student Management System is a long-term Java learning project.
+This project is part of my long-term journey toward becoming a Backend Software Engineer.
 
-Instead of creating many small practice projects, I decided to build one project and improve it gradually as I learn new concepts.
+Instead of building many unrelated projects, I continuously improve the same codebase while applying new concepts as I learn them.
 
-Each version of this repository represents a step in my journey toward becoming a backend software engineer.
+Version **v1.2** introduces a cleaner architecture by separating responsibilities into layers (UI, Service, Repository, Model, Utility, and Exception packages), making the project easier to maintain, extend, and test.
 
-The first release focuses on Java fundamentals, Object-Oriented Programming (OOP), Java Collections Framework, and implementing basic CRUD operations without external libraries or databases.
 ---
 
 ## Features
 
-- Add students
-- Show all students
+- Add new students
+- View all students
 - Search by ID
 - Search by partial name
 - Update student name
 - Update student GPA
-- Delete by ID
-- Delete by name
+- Delete student by ID
 - Automatic student ID generation
 - Input validation
 - Case-insensitive search
-- Console menu
+- Custom exception handling
+- Layered project architecture
+- Console-based interactive menu
+
+---
+
+## Project Architecture
+
+```
+Main
+ │
+ ▼
+ConsoleMenu (UI)
+ │
+ ▼
+StudentService (Interface)
+ │
+ ▼
+StudentManager (Business Logic)
+ │
+ ▼
+StudentRepository (Data Access)
+ │
+ ▼
+ArrayList<Student>
+```
+
+---
+
+## Project Structure
+
+```
+src
+├── exception
+├── model
+├── repository
+├── service
+├── ui
+├── util
+└── Main.java
+```
+
 ---
 
 ## Technologies
@@ -37,51 +76,83 @@ The first release focuses on Java fundamentals, Object-Oriented Programming (OOP
 - Object-Oriented Programming (OOP)
 - Java Collections Framework
 - ArrayList
-- Scanner
+- Interfaces
+- Exception Handling
+- Regular Expressions
 - IntelliJ IDEA
 - Git
+- GitHub
 
 ---
 
-## What I Learned
+## Concepts Practiced
 
-Through this version, I practiced:
-
-- Creating and using classes
+- Classes & Objects
 - Constructors
 - Encapsulation
-- Working with ArrayList
-- CRUD operations
-- Data validation
-- Code refactoring
-- Method reusability
-- Business logic separation
-- Loops and conditions
-- User input handling
-- Basic Git workflow
+- Interfaces
+- Layered Architecture
+- Separation of Concerns
+- Repository Pattern (Basic)
+- CRUD Operations
+- Input Validation
+- Custom Exceptions
+- Business Logic
+- Collections
+- Method Reusability
+- Code Refactoring
+- Git Version Control
 
 ---
 
 ## Current Limitations
 
 - Console application only
-- Data is stored in memory using `ArrayList`
-- Data is lost when the application closes
+- Data is stored in memory
 - No file persistence
 - No database integration
-- No exception handling for invalid input
+- No unit testing
+- No dependency injection framework
 
 ---
 
-## What's Next
+## Roadmap
 
-The next versions of this project will focus on:
+### Version 1.3
 
-- Constructor improvements
+- Statistics
+- Student sorting
+- Better search options
+- Improved validation
 - Override `toString()`
-- Better validation rules
-- Exception handling
-- Code refactoring
+- Override `equals()` and `hashCode()`
+
+### Version 1.4
+
 - File storage
-- MySQL integration
-- Spring Boot REST API
+- Load data at startup
+- Save data before exit
+
+### Version 2.0
+
+- Generic Repository
+- Generic Service
+- Unit Testing (JUnit)
+- Design Patterns
+
+### Future Goals
+
+- Spring Boot
+- REST API
+- MySQL
+- Docker
+- Authentication
+- Cloud Deployment
+
+---
+
+## Learning Goal
+
+The purpose of this repository is not simply to build a Student Management System.
+
+It is to document my progress while learning software engineering fundamentals, improving code quality, applying better architectural practices, and gradually evolving the project toward a production-style backend application.
